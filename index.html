@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>El Watania — Business Cards</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Bulma (free CDN) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/1.0.4/css/bulma.min.css" integrity="sha512-bHf2W0qcH0KXW8iU/IF3tq1gk6nG2VhZjx4oC1uQy8mZJwqZ7X9qSd2Qrw3I2A3+v0gY3Z9QWqG0KQ8mH+QO0Q==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <!-- Font Awesome Free (icons via CDN) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-random" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="has-background-light">
+
+  <!-- Header -->
+  <section class="section">
+    <div class="container">
+      <div class="box p-6" style="border-radius: 20px;">
+        <div class="is-flex is-align-items-center is-justify-content-space-between is-flex-wrap-wrap">
+          <div class="is-flex is-align-items-center">
+            <img src="assets/img/logo.png" alt="El Watania Logo" style="height:64px;width:auto;margin-right:16px;">
+            <h1 class="title is-3" style="margin:0;">El Watania Company for Import</h1>
+          </div>
+          <div class="has-text-grey">Corporate business cards</div>
+        </div>
+
+        <!-- Action buttons row (company generic) -->
+        <div class="columns is-mobile is-multiline mt-5">
+          <div class="column is-3-desktop is-6-mobile has-text-centered">
+            <button id="btnContact" class="button is-fullwidth is-primary">
+              <span class="icon"><i class="fa-solid fa-id-badge"></i></span>
+              <span>Contact Details</span>
+            </button>
+          </div>
+          <div class="column is-3-desktop is-6-mobile has-text-centered">
+            <a class="button is-fullwidth is-link" href="data/company.vcf" download="elwatania-company.vcf">
+              <span class="icon"><i class="fa-solid fa-address-card"></i></span>
+              <span>Save Contact</span>
+            </a>
+          </div>
+          <div class="column is-3-desktop is-6-mobile has-text-centered">
+            <a class="button is-fullwidth is-success" href="https://wa.me/201064922710" target="_blank" rel="noopener">
+              <span class="icon"><i class="fa-brands fa-whatsapp"></i></span>
+              <span>Chat on WhatsApp</span>
+            </a>
+          </div>
+          <div class="column is-3-desktop is-6-mobile has-text-centered">
+            <button id="btnProducts" class="button is-fullwidth">
+              <span class="icon"><i class="fa-solid fa-boxes-stacked"></i></span>
+              <span>Products</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Products Collapsible -->
+        <div id="productsPanel" class="mt-5" style="display:none;">
+          <h2 class="title is-5">Products & Catalogs</h2>
+          <div id="productsTree" class="menu"></div>
+        </div>
+
+        <!-- Team navigation -->
+        <hr>
+        <h2 class="title is-5">Team Members</h2>
+        <div id="teamGrid" class="columns is-multiline"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Overlay (Modal) -->
+  <div id="contactModal" class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-card" style="border-radius: 20px;">
+      <header class="modal-card-head">
+        <p class="modal-card-title">Company Contact</p>
+        <button class="delete" aria-label="close"></button>
+      </header>
+      <section class="modal-card-body">
+        <ul>
+          <li><strong>Main Office:</strong> Eskander Ibrahim – Miami, Alexandria, Egypt</li>
+          <li><strong>Branch:</strong> North 90th avenue – New Cairo, Cairo, Egypt</li>
+          <li><strong>Showroom & warehouses:</strong> Alexandria / Cairo desert road – 46 Km, Egypt</li>
+          <li><strong>Landline:</strong> +20 3 540 4690</li>
+          <li><strong>Fax:</strong> +20 3 554 7376</li>
+          <li><strong>Email:</strong> <a href="mailto:info@watania-claas.com">info@watania-claas.com</a></li>
+        </ul>
+      </section>
+      <footer class="modal-card-foot is-justify-content-flex-end">
+        <button class="button is-primary">Close</button>
+      </footer>
+    </div>
+  </div>
+
+  <script src="assets/js/common.js"></script>
+  <script>
+    // Root page boot
+    window.AppBoot.initRootPage();
+  </script>
+</body>
+</html>
