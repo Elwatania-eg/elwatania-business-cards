@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>QR Generator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/1.0.4/css/bulma.min.css">
+</head>
+<body class="section">
+  <div class="container">
+    <h1 class="title is-4">Generate QR for Team Member</h1>
+
+    <div class="field">
+      <label class="label">Select member</label>
+      <div class="control">
+        <div class="select">
+          <select id="member"></select>
+        </div>
+      </div>
+    </div>
+
+    <button id="gen" class="button is-primary">Generate</button>
+    <a id="download" class="button is-link ml-3" download="qr.png" style="display:none;">Download PNG</a>
+
+    <div id="qr" class="box mt-5" style="display:inline-block;"></div>
+  </div>
+
+  <!-- QRCode.js (free CDN) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script>
+    const base = location.pathname.includes('/tools/') ? '../' : './';
+    const memberSel = document.getElementById('member');
+    const qrDiv = document.getElementById('qr');
+    const btn = document.getElementById('gen');
+    const dl = document.getElementById('download');
+
+    fetch(base + 'data/team.json').then(r=>r.json()).then(data=>{
+      data.members.forEach(m=>{
+        const opt = document.createElement('option');
+        opt.value = m.slug;
+        opt.textContent = `${m.first} ${m.last} — ${m.title}`;
+        memberSel.appendChild(opt);
+      });
+    });
+
+    btn.addEventListener('click', ()=>{
+      qrDiv.innerHTML = '';
+      const slug = memberSel.value;
+      const url = `${location.origin}${location.pathname.replace('/tools/qr.html','')}/${slug}/`;
+      const qrobj = new QRCode(qrDiv, { text: url, width: 512, height: 512 });
+      // Slight timeout to wait for canvas
+      setTimeout(()=>{
+        const canvas = qrDiv.querySelector('canvas');
+        dl.href = canvas.toDataURL('image/png');
+        dl.style.display = '';
+      }, 200);
+    });
+  </script>
+</body>
+</html>
