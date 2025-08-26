@@ -1,0 +1,40 @@
+{
+  "brands": [
+    {
+      "name": "AGRICM",
+      "logo": "products/AGRICM/logo.png",
+      "pdfs": [
+        { "title": "Tractors AR&AM Specifications", "file": "products/AGRICM/Tractors AR&AM Specifications.pdf" }
+      ]
+    },
+    {
+      "name": "METKARSAN",
+      "logo": "products/METKARSAN/logo.png",
+      "pdfs": [
+        { "title": "METKARSAN ACROBAT RAKES", "file": "products/METKARSAN/METKARSAN ACROBAT RAKES.pdf" },
+        { "title": "METKARSAN DRUM MOWER 165", "file": "products/METKARSAN/METKARSAN DRUM MOWER 165.pdf" }
+      ]
+    },
+    {
+      "name": "GUNGOR",
+      "logo": "products/GUNGOR/logo.png",
+      "pdfs": [
+        { "title": "GUNGOR SERPER ECO 1200", "file": "products/GUNGOR/GUNGOR SERPER ECO 1200.pdf" }
+      ]
+    },
+    {
+      "name": "OKTAR",
+      "logo": "products/OKTAR/logo.png",
+      "pdfs": [
+        { "title": "OKTAR ADRIA CATALOG", "file": "products/OKTAR/OKTAR ADRIA CATALOG.pdf" }
+      ]
+    },
+    {
+      "name": "AGROSATEX",
+      "logo": "products/AGROSATEX/logo.png",
+      "pdfs": [
+        { "title": "Agrosatex OTP-04 HAY RAKE Catalogue", "file": "products/AGROSATEX/Agrosatex OTP-04 HAY RAKE Catalogue.pdf" }
+      ]
+    }
+  ]
+}
