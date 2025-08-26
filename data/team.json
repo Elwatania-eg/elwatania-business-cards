@@ -1,0 +1,70 @@
+{
+  "company": {
+    "name": "El Watania Company for Import",
+    "logo": "assets/img/logo.png",
+    "email": "info@watania-claas.com",
+    "landline": "+20 3 540 4690",
+    "fax": "+20 3 554 7376",
+    "addresses": {
+      "main_office": "5 Eskander Ibrahim – Miami, Alexandria, Egypt",
+      "branch": "North 90th avenue – New Cairo, Cairo, Egypt",
+      "showroom": "Alexandria / Cairo desert road – 46 Km, Egypt"
+    }
+  },
+  "members": [
+    {
+      "slug": "fakhry-torfa",
+      "first": "Fakhry",
+      "last": "Torfa",
+      "title": "Chairman",
+      "email": "Torfa@watania-claas.com",
+      "whatsapp": "+201223229101",
+      "mobile": "+201223229101"
+    },
+    {
+      "slug": "eslam-torfa",
+      "first": "Eslam",
+      "last": "Torfa",
+      "title": "CEO",
+      "email": "eslamtorfa@watania-claas.com",
+      "whatsapp": "+201009080004",
+      "mobile": "+201009080004"
+    },
+    {
+      "slug": "ahmed-fakhry-torfa",
+      "first": "Ahmed Fakhry",
+      "last": "Torfa",
+      "title": "Operations Manager - Board Member",
+      "email": "ahmedtorfa@watania-claas.com",
+      "whatsapp": "+201064922710",
+      "mobile": "+201064922710"
+    },
+    {
+      "slug": "ahmed-zaitoun",
+      "first": "Ahmed",
+      "last": "Zaitoun",
+      "title": "After-Sale Service Manager",
+      "email": "ahmedzaitoon@watania-claas.com",
+      "whatsapp": "+201004478558",
+      "mobile": "+201004478558"
+    },
+    {
+      "slug": "samir-mouris",
+      "first": "Samir",
+      "last": "Mouris",
+      "title": "Finance Manager",
+      "email": "samir@watania-claas.com",
+      "whatsapp": "+201016664513",
+      "mobile": "+201016664513"
+    },
+    {
+      "slug": "hossam-omar",
+      "first": "Hossam",
+      "last": "Omar",
+      "title": "Sales Executive",
+      "email": "hossamomar@watania-claas.com",
+      "whatsapp": "+201009200100",
+      "mobile": "+201009200100"
+    }
+  ]
+}
