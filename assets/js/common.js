@@ -1,4 +1,3 @@
-<script>
 // Single global object to avoid polluting scope
 window.AppBoot = (function(){
   // Helper to open/close Bulma modal
@@ -137,7 +136,7 @@ window.AppBoot = (function(){
               <div class="column is-3-desktop is-6-mobile has-text-centered">
                 <a id="btnVcf" class="button is-fullwidth is-link" download="${slug}.vcf">
                   <span class="icon"><i class="fa-solid fa-address-card"></i></span><span>Save Contact</span>
-                </a>
+                </a
               </div>
               <div class="column is-3-desktop is-6-mobile has-text-centered">
                 <a id="btnWhats" class="button is-fullwidth is-success" target="_blank" rel="noopener">
@@ -226,4 +225,3 @@ window.AppBoot = (function(){
     }
   };
 })();
-</script>
