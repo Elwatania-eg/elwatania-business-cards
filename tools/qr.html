@@ -2,58 +2,62 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>QR Generator</title>
+  <title>QR Code Generator</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/1.0.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/1.0.4/css/bulma.min.css" />
+  <style>
+    body { background-color: #f5f5f5; }
+    .container { max-width: 600px; }
+    .box { border-radius: 20px; }
+  </style>
 </head>
-<body class="section">
-  <div class="container">
-    <h1 class="title is-4">Generate QR for Team Member</h1>
-
-    <div class="field">
-      <label class="label">Select member</label>
-      <div class="control">
-        <div class="select">
-          <select id="member"></select>
+<body>
+  <section class="section">
+    <div class="container">
+      <div class="box has-text-centered p-6">
+        <h1 class="title is-3">QR Code Generator</h1>
+        <p class="subtitle is-6">Enter the person's name to generate their card QR code.</p>
+        <div class="field">
+          <label class="label">Person's Slug</label>
+          <div class="control">
+            <input id="slugInput" class="input" type="text" placeholder="e.g. fakhry-torfa">
+          </div>
+        </div>
+        <div class="control mt-3">
+          <button id="generateBtn" class="button is-fullwidth is-info">Generate QR Code</button>
+        </div>
+        <div id="qrCodeContainer" class="mt-5" style="display:none;">
+          <h2 class="title is-5">QR Code</h2>
+          <img id="qrCode" src="" alt="QR Code" />
+          <p class="mt-2"><small>Scan this code to view the business card page.</small></p>
         </div>
       </div>
     </div>
-
-    <button id="gen" class="button is-primary">Generate</button>
-    <a id="download" class="button is-link ml-3" download="qr.png" style="display:none;">Download PNG</a>
-
-    <div id="qr" class="box mt-5" style="display:inline-block;"></div>
-  </div>
-
-  <!-- QRCode.js (free CDN) -->
+  </section>
+  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
   <script>
-    const base = location.pathname.includes('/tools/') ? '../' : './';
-    const memberSel = document.getElementById('member');
-    const qrDiv = document.getElementById('qr');
-    const btn = document.getElementById('gen');
-    const dl = document.getElementById('download');
-
-    fetch(base + 'data/team.json').then(r=>r.json()).then(data=>{
-      data.members.forEach(m=>{
-        const opt = document.createElement('option');
-        opt.value = m.slug;
-        opt.textContent = `${m.first} ${m.last} — ${m.title}`;
-        memberSel.appendChild(opt);
+    document.addEventListener('DOMContentLoaded', () => {
+      const generateBtn = document.getElementById('generateBtn');
+      const slugInput = document.getElementById('slugInput');
+      const qrCodeContainer = document.getElementById('qrCodeContainer');
+      const qrCodeImg = document.getElementById('qrCode');
+      
+      generateBtn.addEventListener('click', () => {
+        const slug = slugInput.value.trim();
+        if (slug) {
+          // Construct the base URL dynamically
+          const baseUrl = window.location.origin + '/elwatania-business-cards/';
+          const pageUrl = baseUrl + slug + '/';
+          
+          // Clear previous QR code
+          qrCodeImg.src = '';
+          
+          // Update the URL and show the container
+          qrCodeContainer.style.display = 'block';
+          qrCodeImg.src = `https://api.qrserver.com/v1/create-qr-code/?data=${encodeURIComponent(pageUrl)}&size=200x200&margin=5`;
+        }
       });
-    });
-
-    btn.addEventListener('click', ()=>{
-      qrDiv.innerHTML = '';
-      const slug = memberSel.value;
-      const url = `${location.origin}${location.pathname.replace('/tools/qr.html','')}/${slug}/`;
-      const qrobj = new QRCode(qrDiv, { text: url, width: 512, height: 512 });
-      // Slight timeout to wait for canvas
-      setTimeout(()=>{
-        const canvas = qrDiv.querySelector('canvas');
-        dl.href = canvas.toDataURL('image/png');
-        dl.style.display = '';
-      }, 200);
     });
   </script>
 </body>
