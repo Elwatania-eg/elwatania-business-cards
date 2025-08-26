@@ -1,0 +1,12 @@
+/* Basic corporate spacing */
+body { background: #f7f7f9; }
+.menu .menu-list li { margin: 6px 0; }
+
+.tree-brand { cursor: pointer; user-select: none; }
+.tree-brand .brand-row { display:flex; align-items:center; gap:10px; }
+.tree-brand img { height: 20px; width:auto; }
+
+.hidden { display:none !important; }
+
+/* Team cards on root page */
+.team-card { border-radius: 16px; }
